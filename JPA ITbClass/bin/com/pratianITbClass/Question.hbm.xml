@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.pratianITbClass">
+    <class name="Question" table="Question" >
+        <id name="questionId" type="integer" column="question_Id">             
+            <generator class="assigned" />
+        </id>
+        
+        <discriminator column="DISCRIMINATOR" type="string"></discriminator>
+        
+        <property name="questionPaper" type="string" column="questionPaper" />
+   
+      
+        <subclass name="MCQquestion" extends="Question" discriminator-value="MCQquestion">
+                <property name="Option1" type="integer" column="OPTION_1" />
+                  <property name="Option2" type="integer" column="OPTION_2" />
+                    <property name="Option3" type="integer" column="OPTION_3" />
+                      <property name="Option4" type="integer" column="OPTION_4" />
+                             
+        </subclass>
+        
+        <subclass name="HandOnLabs" extends="Question" discriminator-value="HandOnLabs">
+                <property name="completedLab" type="integer" column="Complete_Lab" />
+                <property name="IncompletedLab" type="integer" column="Incompleted_Lab" />               
+        </subclass> 
+                  
+    </class>
+</hibernate-mapping>
