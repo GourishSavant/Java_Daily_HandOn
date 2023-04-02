@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.pratian_inheritance">
+    <class name="Question" table="Question" >
+        <id name="questionNo" type="integer" column="QuestionNo">             
+            <generator class="assigned" />
+        </id>
+        
+        <discriminator column="DISCRIMINATOR" type="string"></discriminator>
+        
+        <property name="questionPaper" type="string" column="QuestionPaper" />
+    
+      
+        <subclass name="MCQQuestiom" extends="Question" discriminator-value="MCQQuestiom">
+                <property name="hardQuestion" type="integer" column="HardQuestion" />
+                <property name="simpleQuestion" type="integer" column="SimpleQuestion" />
+                            
+        </subclass>
+        
+        <subclass name="HandsomeQuestion" extends="Question" discriminator-value="HandsomeQuestion">
+                <property name="labPratice" type="integer" column="LabPratice" />
+                <property name="labError" type="integer" column="LabError" />     
+        </subclass> 
+                  
+    </class>
+</hibernate-mapping>
+
