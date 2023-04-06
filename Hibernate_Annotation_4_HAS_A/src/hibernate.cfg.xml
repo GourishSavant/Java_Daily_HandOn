@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///hb_annotation4?createDatabaseIfNotExist=true</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="hibernate.cache.use_second_level_cache">false</property>
+		
+  <!-- 	<mapping class="com.pratian.one_to_one_uni.Customer_1_1_Uni" />
+		<mapping class="com.pratian.one_to_one_uni.Reservation_1_1_Uni" />   
+		
+   	<mapping class="com.pratian.one_to_one_bi.Customer_1_1_Bi" />
+		<mapping class="com.pratian.one_to_one_bi.Reservation_1_1_Bi" />   -->
+		
+  <!--	<mapping class="com.pratian.many_to_one_uni.Customer_M_1_Uni" />
+		<mapping class="com.pratian.many_to_one_uni.Reservation_M_1_Uni" />  
+		
+	  	<mapping class="com.pratian.many_to_one_bi.Customer_M_1_Bi" />
+		<mapping class="com.pratian.many_to_one_bi.Reservation_M_1_Bi" /> -->
+			
+		
+		 <mapping class="com.pratian.one_to_many_uni.Owner" />
+	<mapping class="com.pratian.one_to_many_uni.Car" />  
+		
+   	   	
+		
+<!--	 <mapping class="com.pratian.one_to_many_bi.Customer"/>
+		<mapping class="com.pratian.one_to_many_bi.Vehicle"/>  -->
+	</session-factory>
+</hibernate-configuration>
